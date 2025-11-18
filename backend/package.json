@@ -1,0 +1,19 @@
+{
+  "name": "student-registration-backend",
+  "version": "1.0.0",
+  "description": "Backend for Student Registration System",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.0",
+    "express": "^4.19.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^7.6.0"
+  }
+}
