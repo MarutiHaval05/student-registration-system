@@ -20,7 +20,8 @@ export const AuthProvider = ({ children }) => {
     delete axios.defaults.headers.common["Authorization"];
   };
 
-  axios.defaults.baseURL = "http://localhost:5000/api";
+  // 🔥 IMPORTANT: USE LIVE BACKEND URL
+  axios.defaults.baseURL = "https://student-backend-9f8n.onrender.com/api";
 
   return (
     <AuthContext.Provider value={{ user, login, logout }}>
