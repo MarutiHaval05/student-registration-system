@@ -21,7 +21,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   // 🔥 IMPORTANT: USE LIVE BACKEND URL
-  axios.defaults.baseURL = "https://student-backend-9f8n.onrender.com/api";
+  axios.defaults.baseURL = "https://student-backend-system.onrender.com";
 
   return (
     <AuthContext.Provider value={{ user, login, logout }}>
