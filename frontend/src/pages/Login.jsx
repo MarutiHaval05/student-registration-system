@@ -12,7 +12,10 @@ function Login() {
 
   const handleLogin = async () => {
     try {
-      const res = await axios.post("/auth/login", { email, password });
+      const res = await axios.post(
+        "https://student-backend-system.onrender.com/api/auth/login",
+        { email, password }
+      );
       login(res.data);
       navigate("/dashboard");
     } catch {

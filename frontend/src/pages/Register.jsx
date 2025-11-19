@@ -12,7 +12,10 @@ function Register() {
 
   const registerUser = async () => {
     try {
-      await axios.post("/auth/register", data);
+      await axios.post(
+        "https://student-backend-system.onrender.com/api/auth/register",
+        data
+      );
       alert("Registered successfully!");
       navigate("/");
     } catch {
