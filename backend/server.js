@@ -8,11 +8,13 @@ import courseRoutes from "./routes/courseRoutes.js";
 import profileRoutes from "./routes/profileRoutes.js";
 
 dotenv.config();
+
+// CONNECT TO DATABASE
 connectDB();
 
 const app = express();
 
-// 🔥 FIXED CORS (stops pending Preflight)
+// CORS FIX FOR RENDER + FRONTEND
 app.use(
   cors({
     origin: "*",
@@ -23,17 +25,23 @@ app.use(
 
 app.use(express.json());
 
-// Default API test route
+// TEST ROUTE
 app.get("/", (req, res) => {
   res.send("API Running...");
 });
 
-// Routes
+// ROUTES
 app.use("/api/auth", authRoutes);
 app.use("/api/courses", courseRoutes);
 app.use("/api/profile", profileRoutes);
 
-// 🔥 IMPORTANT FIX FOR RENDER
+// GLOBAL ERROR HANDLER
+app.use((err, req, res, next) => {
+  console.error("🔥 SERVER ERROR:", err);
+  res.status(500).json({ message: "Unexpected server error" });
+});
+
+// RENDER PORT FIX
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
